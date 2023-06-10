@@ -14,7 +14,7 @@ class MPesa_Display_Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'mpesa_display_widget',
-            'MPesa Till or Paybill Display Widget',
+            'Lipa na Mpesa Display Widget',
             array( 'description' => 'Displays the MPesa Till or Paybill number.' )
         );
 
@@ -24,25 +24,45 @@ class MPesa_Display_Widget extends WP_Widget {
     // Renders the widget with the provided arguments and instance settings
 
     public function widget( $args, $instance ) {
-        $mpesa_number = apply_filters( 'mpesa_display_widget_mpesa_number', $instance['mpesa_number'] );
-        
-        echo $args['before_widget'];
-        echo $args['before_title'] . 'MPesa Till or Paybill Number' . $args['after_title'];
-        
-        if ( $mpesa_number ) {
-            echo '<p>' . $mpesa_number . '</p>';
-        } else {
-            echo '<p>No MPesa number set. Please set the MPesa number.</p>';
+        $mpesa_option = isset( $instance['mpesa_option'] ) ? $instance['mpesa_option'] : '';
+        $till_number = isset( $instance['till_number'] ) ? $instance['till_number'] : '';
+        $paybill_number = isset( $instance['paybill_number'] ) ? $instance['paybill_number'] : '';
+        $account_number = isset( $instance['account_number'] ) ? $instance['account_number'] : '';
+        $send_phone_number = isset( $instance['send_phone_number'] ) ? $instance['send_phone_number'] : '';
+    
+        echo $args['before_widget'];?>
+
+        <div class="mpesa-payment-display-widget">
+    
+       <?php 
+        // Widget content display
+        echo '<img src="' . plugin_dir_url( __FILE__ ) . 'img/title-image.jpeg" alt="Lipa Na Mpesa" />';
+
+    
+        // Display the selected option
+        echo '<p>Payment Option: ' .'</p>';
+    
+        // Display the corresponding fields based on the selected option
+        if ( 'till' === $mpesa_option ) {
+            echo '<p>Till Number: ' . $till_number . '</p>';
+        } elseif ( 'paybill' === $mpesa_option ) {
+            echo '<p>Paybill Business Number: ' . $paybill_number . '</p>';
+            echo '<p>Paybill Account Number: ' . $account_number . '</p>';
+        } elseif ( 'phone_number' === $mpesa_option ) {
+            echo '<p>Send to Phone Number: ' . $send_phone_number . '</p>';
         }
-        
+        ?>
+</div>
+        <?php 
+    
         echo $args['after_widget'];
     }
-
+    
 
     // Renders the widget settings form with the provided instance settings
- // Renders the widget settings form with the provided instance settings
+// Renders the widget settings form with the provided instance settings
+// Renders the widget settings form with the provided instance settings
 public function form( $instance ) {
-    $mpesa_number = isset( $instance['mpesa_number'] ) ? $instance['mpesa_number'] : '';
     $mpesa_option = isset( $instance['mpesa_option'] ) ? $instance['mpesa_option'] : '';
 
     ?>
@@ -51,33 +71,52 @@ public function form( $instance ) {
         <input type="radio" name="<?php echo $this->get_field_name( 'mpesa_option' ); ?>" value="till" <?php checked( $mpesa_option, 'till' ); ?>>
         <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_till">MPesa Till</label><br>
         <input type="radio" name="<?php echo $this->get_field_name( 'mpesa_option' ); ?>" value="paybill" <?php checked( $mpesa_option, 'paybill' ); ?>>
-        <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_paybill">MPesa Paybill</label>
+        <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_paybill">MPesa Paybill</label><br>
+        <input type="radio" name="<?php echo $this->get_field_name( 'mpesa_option' ); ?>" value="phone_number" <?php checked( $mpesa_option, 'phone_number' ); ?>>
+        <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_phone_number">Send to Phone Number</label>
     </p>
     
-    <?php if ( 'till' === $mpesa_option ) : ?>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'mpesa_number' ); ?>">MPesa Till Number:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'mpesa_number' ); ?>" name="<?php echo $this->get_field_name( 'mpesa_number' ); ?>" type="text" value="<?php echo esc_attr( $mpesa_number ); ?>" />
-        </p>
-    <?php elseif ( 'paybill' === $mpesa_option ) : ?>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'mpesa_number' ); ?>">MPesa Paybill Number:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'mpesa_number' ); ?>" name="<?php echo $this->get_field_name( 'mpesa_number' ); ?>" type="text" value="<?php echo esc_attr( $mpesa_number ); ?>" />
-        </p>
-    <?php endif; ?>
+   
+    
+    <p>
+        <label for="<?php echo $this->get_field_id( 'till_number' ); ?>">Till Number:</label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'till_number' ); ?>" name="<?php echo $this->get_field_name( 'till_number' ); ?>" type="text" value="<?php echo esc_attr( $instance['till_number'] ); ?>" />
+    </p>
+    
+    <p>
+        <label for="<?php echo $this->get_field_id( 'paybill_number' ); ?>">Paybill Business Number:</label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'paybill_number' ); ?>" name="<?php echo $this->get_field_name( 'paybill_number' ); ?>" type="text" value="<?php echo esc_attr( $instance['paybill_number'] ); ?>" />
+    </p>
+    
+    <p>
+        <label for="<?php echo $this->get_field_id( 'account_number' ); ?>">Paybill Account Number:</label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'account_number' ); ?>" name="<?php echo $this->get_field_name( 'account_number' ); ?>" type="text" value="<?php echo esc_attr( $instance['account_number'] ); ?>" />
+    </p>
+
+    <p>
+        <label for="<?php echo $this->get_field_id( 'send_phone_number' ); ?>">Send to Phone Number:</label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'send_phone_number' ); ?>" name="<?php echo $this->get_field_name( 'send_phone_number' ); ?>" type="text" value="<?php echo esc_attr( $instance['send_phone_number'] ); ?>" />
+    </p>
     
     <?php
 }
 
 
 
-   // Updates and saves the widget instance settings with the new instance values
-   public function update( $new_instance, $old_instance ) {
+
+
+
+// Updates and saves the widget instance settings with the new instance values
+public function update( $new_instance, $old_instance ) {
     $instance = array();
     $instance['mpesa_option'] = ! empty( $new_instance['mpesa_option'] ) ? sanitize_text_field( $new_instance['mpesa_option'] ) : '';
-    $instance['mpesa_number'] = ! empty( $new_instance['mpesa_number'] ) ? sanitize_text_field( $new_instance['mpesa_number'] ) : '';
+    $instance['till_number'] = ! empty( $new_instance['till_number'] ) ? sanitize_text_field( $new_instance['till_number'] ) : '';
+    $instance['paybill_number'] = ! empty( $new_instance['paybill_number'] ) ? sanitize_text_field( $new_instance['paybill_number'] ) : '';
+    $instance['account_number'] = ! empty( $new_instance['account_number'] ) ? sanitize_text_field( $new_instance['account_number'] ) : '';
+    $instance['send_phone_number'] = ! empty( $new_instance['send_phone_number'] ) ? sanitize_text_field( $new_instance['send_phone_number'] ) : '';
 
     return $instance;
 }
+
 
 }

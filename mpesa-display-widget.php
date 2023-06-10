@@ -21,10 +21,18 @@
  */
 
 
+/*
+ * Prevent direct access to this file 
+ * Exit if accessed directly
+ */
+
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+    exit; 
 }
 
+/*
+*Include the MPesa Display Widget class
+*/
 
 require plugin_dir_path(__FILE__) . 'inc/class-mpesa-display-widget.php';
 
@@ -37,3 +45,12 @@ function mpesa_display_widget_register_widget() {
     register_widget( 'MPesa_Display_Widget' );
 }
 add_action( 'widgets_init', 'mpesa_display_widget_register_widget' );
+
+
+/**
+ * Enqueue styles for the MPesa Display Widget.
+ */
+function mpesa_display_widget_enqueue_widget_styles() {
+    wp_enqueue_style( 'mpesa-display-widget-styles', plugin_dir_url( __FILE__ ) . 'assets/styles.css' );
+}
+add_action( 'wp_enqueue_scripts', 'mpesa_display_widget_enqueue_widget_styles' );

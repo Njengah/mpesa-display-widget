@@ -1,0 +1,10 @@
+/**
+ * Mpesa Display Widget Styles
+ */
+
+
+
+.mpesa-payment-display-widget {
+    border: solid 2px rgb(102, 173, 69);
+    background: #fff;
+}
