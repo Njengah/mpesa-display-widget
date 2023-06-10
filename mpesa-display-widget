@@ -6,51 +6,33 @@
  * Version: 1.0.0
  * Author: Joe Njenga
  * Author URI: https://njengah.com
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       send-to-mpesa-payment
+ * Domain Path:       /languages
+ * 
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License version 2, as published by the Free Software Foundation. You may NOT assume
+ * that you can use any other version of the GPL.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * 
  */
 
-class MPesa_Display_Widget extends WP_Widget {
-    public function __construct() {
-        parent::__construct(
-            'mpesa_display_widget',
-            'MPesa Till or Paybill Display Widget',
-            array( 'description' => 'Displays the MPesa Till or Paybill number.' )
-        );
-    }
 
-    public function widget( $args, $instance ) {
-        $mpesa_number = apply_filters( 'mpesa_display_widget_mpesa_number', $instance['mpesa_number'] );
-        
-        echo $args['before_widget'];
-        echo $args['before_title'] . 'MPesa Till or Paybill Number' . $args['after_title'];
-        
-        if ( $mpesa_number ) {
-            echo '<p>' . $mpesa_number . '</p>';
-        } else {
-            echo '<p>No MPesa number set. Please set the MPesa number.</p>';
-        }
-        
-        echo $args['after_widget'];
-    }
-
-    public function form( $instance ) {
-        $mpesa_number = isset( $instance['mpesa_number'] ) ? $instance['mpesa_number'] : '';
-
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'mpesa_number' ); ?>">MPesa Till or Paybill Number:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'mpesa_number' ); ?>" name="<?php echo $this->get_field_name( 'mpesa_number' ); ?>" type="text" value="<?php echo esc_attr( $mpesa_number ); ?>" />
-        </p>
-        <?php
-    }
-
-    public function update( $new_instance, $old_instance ) {
-        $instance = array();
-        $instance['mpesa_number'] = ! empty( $new_instance['mpesa_number'] ) ? sanitize_text_field( $new_instance['mpesa_number'] ) : '';
-
-        return $instance;
-    }
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
 }
 
+
+require plugin_dir_path(__FILE__) . 'inc/class-mpesa-display-widget.php';
+
+
+/*
+ * Registers the MPesa_Display_Widget as a WordPress widget
+ * Allows the widget to be added and displayed in widget areas
+ */
 function mpesa_display_widget_register_widget() {
     register_widget( 'MPesa_Display_Widget' );
 }
