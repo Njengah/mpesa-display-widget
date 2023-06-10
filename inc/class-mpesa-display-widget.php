@@ -17,7 +17,7 @@ class MPesa_Display_Widget extends WP_Widget {
             'MPesa Till or Paybill Display Widget',
             array( 'description' => 'Displays the MPesa Till or Paybill number.' )
         );
-        
+
     }
     
 
@@ -40,24 +40,44 @@ class MPesa_Display_Widget extends WP_Widget {
 
 
     // Renders the widget settings form with the provided instance settings
-    public function form( $instance ) {
-        $mpesa_number = isset( $instance['mpesa_number'] ) ? $instance['mpesa_number'] : '';
+ // Renders the widget settings form with the provided instance settings
+public function form( $instance ) {
+    $mpesa_number = isset( $instance['mpesa_number'] ) ? $instance['mpesa_number'] : '';
+    $mpesa_option = isset( $instance['mpesa_option'] ) ? $instance['mpesa_option'] : '';
 
-        ?>
+    ?>
+    <p>
+        <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>">Select Option:</label><br>
+        <input type="radio" name="<?php echo $this->get_field_name( 'mpesa_option' ); ?>" value="till" <?php checked( $mpesa_option, 'till' ); ?>>
+        <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_till">MPesa Till</label><br>
+        <input type="radio" name="<?php echo $this->get_field_name( 'mpesa_option' ); ?>" value="paybill" <?php checked( $mpesa_option, 'paybill' ); ?>>
+        <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_paybill">MPesa Paybill</label>
+    </p>
+    
+    <?php if ( 'till' === $mpesa_option ) : ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'mpesa_number' ); ?>">MPesa Till or Paybill Number:</label>
+            <label for="<?php echo $this->get_field_id( 'mpesa_number' ); ?>">MPesa Till Number:</label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'mpesa_number' ); ?>" name="<?php echo $this->get_field_name( 'mpesa_number' ); ?>" type="text" value="<?php echo esc_attr( $mpesa_number ); ?>" />
         </p>
-        <?php
-    }
+    <?php elseif ( 'paybill' === $mpesa_option ) : ?>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'mpesa_number' ); ?>">MPesa Paybill Number:</label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'mpesa_number' ); ?>" name="<?php echo $this->get_field_name( 'mpesa_number' ); ?>" type="text" value="<?php echo esc_attr( $mpesa_number ); ?>" />
+        </p>
+    <?php endif; ?>
+    
+    <?php
+}
+
 
 
    // Updates and saves the widget instance settings with the new instance values
-    public function update( $new_instance, $old_instance ) {
-        $instance = array();
-        $instance['mpesa_number'] = ! empty( $new_instance['mpesa_number'] ) ? sanitize_text_field( $new_instance['mpesa_number'] ) : '';
+   public function update( $new_instance, $old_instance ) {
+    $instance = array();
+    $instance['mpesa_option'] = ! empty( $new_instance['mpesa_option'] ) ? sanitize_text_field( $new_instance['mpesa_option'] ) : '';
+    $instance['mpesa_number'] = ! empty( $new_instance['mpesa_number'] ) ? sanitize_text_field( $new_instance['mpesa_number'] ) : '';
 
-        return $instance;
-    }
+    return $instance;
+}
 
 }

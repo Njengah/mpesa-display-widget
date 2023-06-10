@@ -2,7 +2,7 @@
 /**
  * Plugin Name: MPesa Till or Paybill Display Widget
  * Plugin URI: https://njengah.com
- * Description: A WordPress plugin to display the MPesa Till or Paybill number.
+ * Description: A widget plugin for WordPress or WooCommerce that seamlessly displays the MPesa Till or Paybill number on your website. Easily configure and showcase your payment details with this user-friendly solution.
  * Version: 1.0.0
  * Author: Joe Njenga
  * Author URI: https://njengah.com
