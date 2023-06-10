@@ -20,44 +20,47 @@ class MPesa_Display_Widget extends WP_Widget {
 
     }
     
+// Renders the widget with the provided arguments and instance settings
+public function widget( $args, $instance ) {
+    $mpesa_option = isset( $instance['mpesa_option'] ) ? $instance['mpesa_option'] : '';
+    $till_number = isset( $instance['till_number'] ) ? $instance['till_number'] : '';
+    $paybill_number = isset( $instance['paybill_number'] ) ? $instance['paybill_number'] : '';
+    $account_number = isset( $instance['account_number'] ) ? $instance['account_number'] : '';
+    $send_phone_number = isset( $instance['send_phone_number'] ) ? $instance['send_phone_number'] : '';
 
-    // Renders the widget with the provided arguments and instance settings
+    echo $args['before_widget'];
+    ?>
 
-    public function widget( $args, $instance ) {
-        $mpesa_option = isset( $instance['mpesa_option'] ) ? $instance['mpesa_option'] : '';
-        $till_number = isset( $instance['till_number'] ) ? $instance['till_number'] : '';
-        $paybill_number = isset( $instance['paybill_number'] ) ? $instance['paybill_number'] : '';
-        $account_number = isset( $instance['account_number'] ) ? $instance['account_number'] : '';
-        $send_phone_number = isset( $instance['send_phone_number'] ) ? $instance['send_phone_number'] : '';
-    
-        echo $args['before_widget'];?>
-
-        <div class="mpesa-payment-display-widget">
-    
-       <?php 
+    <div class="mpesa-payment-display-widget">
+        <?php 
         // Widget content display
         echo '<img src="' . plugin_dir_url( __FILE__ ) . 'img/title-image.jpeg" alt="Lipa Na Mpesa" />';
 
-    
         // Display the selected option
-        echo '<p>Payment Option: ' .'</p>';
-    
+        if ( 'till' === $mpesa_option ) {
+            echo '<h3>TILL NUMBER</h3>';
+        } elseif ( 'paybill' === $mpesa_option ) {
+            echo '<h3>PAYBILL NUMBER</h3>';
+        } elseif ( 'phone_number' === $mpesa_option ) {
+            echo '<h3>SEND MONEY</h3>';
+        }
+
         // Display the corresponding fields based on the selected option
         if ( 'till' === $mpesa_option ) {
-            echo '<p>Till Number: ' . $till_number . '</p>';
+            echo '<div class="mpesa-till-number">'. $till_number . '</div>';
         } elseif ( 'paybill' === $mpesa_option ) {
-            echo '<p>Paybill Business Number: ' . $paybill_number . '</p>';
-            echo '<p>Paybill Account Number: ' . $account_number . '</p>';
+            echo '<div class="mpesa-paybill-number">'. '<span>NO</span>' . "    "  . $paybill_number . '</div>';
+            echo '<div class="mpesa-paybill-account">'.'<span>A/C</span>'. "    " . $account_number . '</div>';
         } elseif ( 'phone_number' === $mpesa_option ) {
-            echo '<p>Send to Phone Number: ' . $send_phone_number . '</p>';
+            echo '<div class="mpesa-send-money">' . $send_phone_number . '</div>';
         }
         ?>
-</div>
-        <?php 
-    
-        echo $args['after_widget'];
-    }
-    
+    </div>
+
+    <?php 
+    echo $args['after_widget'];
+}
+
 
     // Renders the widget settings form with the provided instance settings
 // Renders the widget settings form with the provided instance settings
