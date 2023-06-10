@@ -1,7 +1,5 @@
 # MPesa Till or Paybill Display Widget
-A widget plugin for WordPress or WooCommerce that seamlessly displays the MPesa Till or Paybill number on your website. Easily configure and showcase your payment details with this user-friendly solution.
-
-Display the MPesa Till or Paybill number on your WordPress or WooCommerce website with ease using this widget plugin.
+A widget plugin for WordPress or WooCommerce that seamlessly displays the MPesa Till or Paybill number on your website. Easily configure and showcase your payment details with this user-friendly solution. Display the MPesa Till or Paybill number on your WordPress or WooCommerce website with ease using this widget plugin.
 
 ## Description
 
