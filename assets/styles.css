@@ -26,9 +26,9 @@
 .mpesa-send-money,
 .mpesa-till-number {
     text-align: center;
-    padding: 10px;
+    padding: 0px;
     font-size: 25px;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     border-left: solid rgb(102, 173, 69) 3px;
     border-bottom: solid rgb(102, 173, 69) 3px;
     border-right: solid rgb(102, 173, 69) 3px;
@@ -42,7 +42,6 @@
     font-size: 25px;
     color: #000;
     letter-spacing: 2px;
-
     border-left: solid 3px rgb(102, 173, 69);
     border-right: solid 3px rgb(102, 173, 69);
 }
@@ -68,4 +67,38 @@
     border-right: solid 4px rgb(102, 173, 69);
     padding: 0 2px;
     max-width: 100px;
+}
+
+.mpesa-till-number span {
+    display: inline-block;
+    border: 2px solid rgb(102, 173, 69);
+    padding: 0px 5px;
+    margin: 0;
+    border-top: none;
+    border-bottom: none;
+}
+
+.mpesa-till-number span:first-child {
+    border-left: none;
+}
+
+.mpesa-till-number span:last-child {
+    border-right: none;
+}
+
+.mpesa-send-money span {
+    display: inline-block;
+    border: 2px solid rgb(102, 173, 69);
+    padding: 0px 3px;
+    margin: 0px;
+    border-top: none;
+    border-bottom: none;
+}
+
+.mpesa-send-money span:first-child {
+    border-left: none;
+}
+
+.mpesa-send-money span:last-child {
+    border-right: none;
 }

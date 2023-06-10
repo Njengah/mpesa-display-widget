@@ -45,7 +45,7 @@ public function widget( $args, $instance ) {
             echo '<h3>SEND MONEY</h3>';
         }
 
-        // Display the corresponding fields based on the selected option
+      /*  // Display the corresponding fields based on the selected option
         if ( 'till' === $mpesa_option ) {
             echo '<div class="mpesa-till-number">'. $till_number . '</div>';
         } elseif ( 'paybill' === $mpesa_option ) {
@@ -53,7 +53,43 @@ public function widget( $args, $instance ) {
             echo '<div class="mpesa-paybill-account">'.'<span>A/C</span>'. "    " . $account_number . '</div>';
         } elseif ( 'phone_number' === $mpesa_option ) {
             echo '<div class="mpesa-send-money">' . $send_phone_number . '</div>';
-        }
+        }*/ 
+
+        // Display the corresponding fields based on the selected option
+if ( 'till' === $mpesa_option ) {
+    echo '<div class="mpesa-till-number">';
+    $till_chars = str_split($till_number); // Convert string to an array of characters
+    foreach ($till_chars as $char) {
+        echo '<span>' . $char . '</span>';
+    }
+    echo '</div>';
+} elseif ( 'paybill' === $mpesa_option ) {
+
+    echo '<div class="mpesa-paybill-number">'. '<span>NO</span>' . "    "  . $paybill_number . '</div>';
+    echo '<div class="mpesa-paybill-account">'.'<span>A/C</span>'. "    " . $account_number . '</div>';
+    /*
+    echo '<div class="mpesa-paybill-number">';
+    $paybill_chars = str_split($paybill_number); // Convert string to an array of characters
+    foreach ($paybill_chars as $char) {
+        echo '<span>' . $char . '</span>';
+    }
+    echo '</div>';
+
+    echo '<div class="mpesa-paybill-account">';
+    $account_chars = str_split($account_number); // Convert string to an array of characters
+    foreach ($account_chars as $char) {
+        echo '<span>' . $char . '</span>';
+    }
+    echo '</div>';
+    */ 
+} elseif ( 'phone_number' === $mpesa_option ) {
+    echo '<div class="mpesa-send-money">';
+    $phone_chars = str_split($send_phone_number); // Convert string to an array of characters
+    foreach ($phone_chars as $char) {
+        echo '<span>' . $char . '</span>';
+    }
+    echo '</div>';
+}
         ?>
     </div>
 
