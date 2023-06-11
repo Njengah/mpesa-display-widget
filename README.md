@@ -39,9 +39,12 @@ A: Yes, the plugin provides options to customize the widget's appearance to matc
 **Q: Can I use this plugin with WooCommerce?**
 A: Absolutely! This plugin is fully compatible with WooCommerce, allowing you to display your MPesa Till or Paybill number on your WooCommerce-powered online store.
 
+## Documentation 
+Discover the answers to your questions in our comprehensive Documentation and Knowledge Base. Start exploring now (https://docs.storemizer.com/product/mpesa-till-or-paybill-display-widget/)  
+
 ## Support
 
-For any issues, questions, or feature requests, please [open an issue](https://github.com/Njengah/mpesa-display-widget/issues) on GitHub.
+For any tech issues, bugs, questions, or feature requests, please [open an issue](https://github.com/Njengah/mpesa-display-widget/issues) on GitHub.
 
 ## Contributing
 
