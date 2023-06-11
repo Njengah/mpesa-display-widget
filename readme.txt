@@ -1,5 +1,5 @@
 === MPesa Till or Paybill Display Widget ===
-Contributors: Njengah
+Contributors: Njengah, storemizer
 Donate link: https://njengah.com/contact/ 
 Tags:  mpesa, woocommerce mpesa payment, mpesa woocommmerce payment, mpesa payment, mpesa widget 
 Requires at least: 4.3
