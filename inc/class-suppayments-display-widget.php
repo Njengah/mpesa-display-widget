@@ -1,59 +1,59 @@
 <?php 
 /**
- * MPesa_Display_Widget class extends the WP_Widget class.
+ * Suppayments_Display_Widget class extends the WP_Widget class.
  *
  * @link       https://njengah.com/developer
  * @since      1.0.0
  *
- * @package    MPesa Till or Paybill Display Widget
- * @subpackage MPesa Till or Paybill Display Widget/inc
+ * @package    Suppayments Till or Paybill Display Widget
+ * @subpackage Suppayments Till or Paybill Display Widget/inc
  */
 
-class MPesa_Display_Widget extends WP_Widget {
+class Suppayments_Display_Widget extends WP_Widget {
 
     // Constructor 
         public function __construct() {
             parent::__construct(
-                'mpesa_display_widget',
+                'suppayments_display_widget',
                 'Lipa na Mpesa Display Widget',
-                array( 'description' => 'Displays the MPesa Till or Paybill number.' )
+                array( 'description' => 'Displays the Suppayments Till or Paybill number.' )
             );
 
         }
     
     // Renders the widget with the provided arguments and instance settings
         public function widget( $args, $instance ) {
-            $mpesa_option = isset( $instance['mpesa_option'] ) ? $instance['mpesa_option'] : '';
+            $suppayments_option = isset( $instance['suppayments_option'] ) ? $instance['suppayments_option'] : '';
             $till_number = isset( $instance['till_number'] ) ? $instance['till_number'] : '';
             $paybill_number = isset( $instance['paybill_number'] ) ? $instance['paybill_number'] : '';
             $account_number = isset( $instance['account_number'] ) ? $instance['account_number'] : '';
             $send_phone_number = isset( $instance['send_phone_number'] ) ? $instance['send_phone_number'] : '';
             echo $args['before_widget']; ?>
-            <div class="mpesa-payment-display-widget">
+            <div class="suppayments-payment-display-widget">
                 <?php 
                 // Widget content display
                 echo '<img src="' . plugin_dir_url( __FILE__ ) . 'img/title-image.jpeg" alt="Lipa Na Mpesa" />';
                 // Display the selected option
-                if ( 'till' === $mpesa_option ) {
+                if ( 'till' === $suppayments_option ) {
                     echo '<h3>TILL NUMBER</h3>';
-                } elseif ( 'paybill' === $mpesa_option ) {
+                } elseif ( 'paybill' === $suppayments_option ) {
                     echo '<h3>PAYBILL NUMBER</h3>';
-                } elseif ( 'phone_number' === $mpesa_option ) {
+                } elseif ( 'phone_number' === $suppayments_option ) {
                     echo '<h3>SEND MONEY</h3>';
                 }
                 // Display the corresponding fields based on the selected option
-                if ( 'till' === $mpesa_option ) {
-                    echo '<div class="mpesa-till-number">';
+                if ( 'till' === $suppayments_option ) {
+                    echo '<div class="suppayments-till-number">';
                     $till_chars = str_split($till_number); // Convert string to an array of characters
                     foreach ($till_chars as $char) {
                         echo '<span>' . $char . '</span>';
                     }
                     echo '</div>';
-                } elseif ( 'paybill' === $mpesa_option ) {
-                    echo '<div class="mpesa-paybill-number">'. '<span>NO</span>' . "    "  . $paybill_number . '</div>';
-                    echo '<div class="mpesa-paybill-account">'.'<span>A/C</span>'. "    " . $account_number . '</div>';
-                } elseif ( 'phone_number' === $mpesa_option ) {
-                    echo '<div class="mpesa-send-money">';
+                } elseif ( 'paybill' === $suppayments_option ) {
+                    echo '<div class="suppayments-paybill-number">'. '<span>NO</span>' . "    "  . $paybill_number . '</div>';
+                    echo '<div class="suppayments-paybill-account">'.'<span>A/C</span>'. "    " . $account_number . '</div>';
+                } elseif ( 'phone_number' === $suppayments_option ) {
+                    echo '<div class="suppayments-send-money">';
                     $phone_chars = str_split($send_phone_number); // Convert string to an array of characters
                     foreach ($phone_chars as $char) {
                         echo '<span>' . $char . '</span>';
@@ -69,15 +69,15 @@ class MPesa_Display_Widget extends WP_Widget {
 
     // Renders the widget settings form with the provided instance settings
         public function form( $instance ) {
-            $mpesa_option = isset( $instance['mpesa_option'] ) ? $instance['mpesa_option'] : '';  ?>
+            $suppayments_option = isset( $instance['suppayments_option'] ) ? $instance['suppayments_option'] : '';  ?>
             <p>
-                <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>">Select Option:</label><br>
-                <input type="radio" name="<?php echo $this->get_field_name( 'mpesa_option' ); ?>" value="till" <?php checked( $mpesa_option, 'till' ); ?>>
-                <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_till">MPesa Till</label><br>
-                <input type="radio" name="<?php echo $this->get_field_name( 'mpesa_option' ); ?>" value="paybill" <?php checked( $mpesa_option, 'paybill' ); ?>>
-                <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_paybill">MPesa Paybill</label><br>
-                <input type="radio" name="<?php echo $this->get_field_name( 'mpesa_option' ); ?>" value="phone_number" <?php checked( $mpesa_option, 'phone_number' ); ?>>
-                <label for="<?php echo $this->get_field_id( 'mpesa_option' ); ?>_phone_number">Send to Phone Number</label>
+                <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>">Select Option:</label><br>
+                <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="till" <?php checked( $suppayments_option, 'till' ); ?>>
+                <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_till">Suppayments Till</label><br>
+                <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="paybill" <?php checked( $suppayments_option, 'paybill' ); ?>>
+                <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_paybill">Suppayments Paybill</label><br>
+                <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="phone_number" <?php checked( $suppayments_option, 'phone_number' ); ?>>
+                <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_phone_number">Send to Phone Number</label>
             </p>
             
             <p>
@@ -106,7 +106,7 @@ class MPesa_Display_Widget extends WP_Widget {
     // Updates and saves the widget instance settings with the new instance values
         public function update( $new_instance, $old_instance ) {
             $instance = array();
-            $instance['mpesa_option'] = ! empty( $new_instance['mpesa_option'] ) ? sanitize_text_field( $new_instance['mpesa_option'] ) : '';
+            $instance['suppayments_option'] = ! empty( $new_instance['suppayments_option'] ) ? sanitize_text_field( $new_instance['suppayments_option'] ) : '';
             $instance['till_number'] = ! empty( $new_instance['till_number'] ) ? sanitize_text_field( $new_instance['till_number'] ) : '';
             $instance['paybill_number'] = ! empty( $new_instance['paybill_number'] ) ? sanitize_text_field( $new_instance['paybill_number'] ) : '';
             $instance['account_number'] = ! empty( $new_instance['account_number'] ) ? sanitize_text_field( $new_instance['account_number'] ) : '';

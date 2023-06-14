@@ -4,13 +4,13 @@
 
 
 
-.mpesa-payment-display-widget {
+.suppayments-payment-display-widget {
     border: solid 2px rgb(102, 173, 69);
     background: #fff;
     margin: 5px auto;
 }
 
-.mpesa-payment-display-widget h3 {
+.suppayments-payment-display-widget h3 {
     text-align: center;
     font-weight: 400;
     padding: 5px;
@@ -19,12 +19,12 @@
     margin-top: -10px;
 }
 
-.mpesa-payment-display-widget img {
+.suppayments-payment-display-widget img {
     border-radius: 0;
 }
 
-.mpesa-send-money,
-.mpesa-till-number {
+.suppayments-send-money,
+.suppayments-till-number {
     text-align: center;
     padding: 0px;
     font-size: 25px;
@@ -36,8 +36,8 @@
 }
 
 
-.mpesa-paybill-number,
-.mpesa-paybill-account {
+.suppayments-paybill-number,
+.suppayments-paybill-account {
     text-align: center;
     font-size: 25px;
     color: #000;
@@ -47,33 +47,33 @@
 }
 
 
-.mpesa-paybill-account {
+.suppayments-paybill-account {
     border-bottom: solid 2px rgb(102, 173, 69);
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
 
-.mpesa-paybill-number {
+.suppayments-paybill-number {
     border-bottom: solid 4px rgb(102, 173, 69);
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
 
-.mpesa-paybill-number span {
+.suppayments-paybill-number span {
 
     border-right: solid 4px rgb(102, 173, 69);
     padding: 0 3px;
 
 }
 
-.mpesa-paybill-account span {
+.suppayments-paybill-account span {
 
     border-right: solid 4px rgb(102, 173, 69);
     padding: 0 2px;
 
 }
 
-.mpesa-till-number span {
+.suppayments-till-number span {
     display: inline-block;
     border: 2px solid rgb(102, 173, 69);
     padding: 0px 5px;
@@ -82,15 +82,15 @@
     border-bottom: none;
 }
 
-.mpesa-till-number span:first-child {
+.suppayments-till-number span:first-child {
     border-left: none;
 }
 
-.mpesa-till-number span:last-child {
+.suppayments-till-number span:last-child {
     border-right: none;
 }
 
-.mpesa-send-money span {
+.suppayments-send-money span {
     display: inline-block;
     border: 2px solid rgb(102, 173, 69);
     padding: 0px 3px;
@@ -99,10 +99,10 @@
     border-bottom: none;
 }
 
-.mpesa-send-money span:first-child {
+.suppayments-send-money span:first-child {
     border-left: none;
 }
 
-.mpesa-send-money span:last-child {
+.suppayments-send-money span:last-child {
     border-right: none;
 }
