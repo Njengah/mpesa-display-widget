@@ -16,7 +16,7 @@ class Suppayments_Display_Widget extends WP_Widget {
             parent::__construct(
                 'suppayments_display_widget',
                 'Lipa na Mpesa Display Widget',
-                array( 'description' => 'Displays the Suppayments Till or Paybill number.' )
+                array( 'description' => 'Displays the Mpesa Till or Paybill number.' )
             );
 
         }
@@ -73,9 +73,9 @@ class Suppayments_Display_Widget extends WP_Widget {
             <p>
                 <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>">Select Option:</label><br>
                 <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="till" <?php checked( $suppayments_option, 'till' ); ?>>
-                <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_till">Suppayments Till</label><br>
+                <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_till">Mpesa Till</label><br>
                 <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="paybill" <?php checked( $suppayments_option, 'paybill' ); ?>>
-                <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_paybill">Suppayments Paybill</label><br>
+                <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_paybill">Mpesa Paybill</label><br>
                 <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="phone_number" <?php checked( $suppayments_option, 'phone_number' ); ?>>
                 <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_phone_number">Send to Phone Number</label>
             </p>

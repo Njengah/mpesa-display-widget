@@ -1,14 +1,14 @@
 === Supported Payments Display Widget ===
 Contributors: Njengah
 Donate link: https://njengah.com/contact/ 
-Tags:  suppayments, Supported Payments Widget, mpesa, woocommerce suppayments payment, suppayments woocommmerce payment, mpesa payment, mpesa widget 
+Tags:   Supported Payments Widget, mpesa, woocommerce, suppayments payment, suppayments woocommmerce payment, mpesa payment, mpesa widget 
 Requires at least: 4.3
 Tested up to:6.2.2
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-# Suppayments Till or Paybill Display Widget
+# Supported Payments Display Widget
 
 A widget plugin for WordPress or WooCommerce that seamlessly displays the supported payments on your website for Mpesa. Easily configure and showcase your payment details with this user-friendly solution. Display the payment Till or Paybill numbers on your WordPress or WooCommerce website with ease using this widget plugin.
 
