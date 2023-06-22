@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Supported Payments Display Widget
+ * Plugin Name: Supported Payments Widget
  * Plugin URI: https://storemizer.com/products/supported-payments-widget
  * Description: This plugin allows users to effortlessly display supported payment options for Mpesa and other mobile payment methods. Easily showcase the available payment options on your website, providing a convenient and seamless payment experience for your customers.
  * Version: 1.0.0
