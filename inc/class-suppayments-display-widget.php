@@ -71,37 +71,38 @@ class Suppayments_Display_Widget extends WP_Widget {
     public function form( $instance ) {
         $suppayments_option = isset( $instance['suppayments_option'] ) ? $instance['suppayments_option'] : '';  ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>">Select Option:</label><br>
-            <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="till" <?php checked( $suppayments_option, 'till' ); ?>>
-            <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_till">Mpesa Till</label><br>
-            <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="paybill" <?php checked( $suppayments_option, 'paybill' ); ?>>
-            <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_paybill">Mpesa Paybill</label><br>
-            <input type="radio" name="<?php echo $this->get_field_name( 'suppayments_option' ); ?>" value="phone_number" <?php checked( $suppayments_option, 'phone_number' ); ?>>
-            <label for="<?php echo $this->get_field_id( 'suppayments_option' ); ?>_phone_number">Send to Phone Number</label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'suppayments_option' ) ); ?>">Select Option:</label><br>
+            <input type="radio" name="<?php echo esc_attr( $this->get_field_name( 'suppayments_option' ) ); ?>" value="till" <?php checked( $suppayments_option, 'till' ); ?>>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'suppayments_option' ) ); ?>_till"><?php echo esc_html( 'Mpesa Till' ); ?></label><br>
+            <input type="radio" name="<?php echo esc_attr( $this->get_field_name( 'suppayments_option' ) ); ?>" value="paybill" <?php checked( $suppayments_option, 'paybill' ); ?>>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'suppayments_option' ) ); ?>_paybill"><?php echo esc_html( 'Mpesa Paybill' ); ?></label><br>
+            <input type="radio" name="<?php echo esc_attr( $this->get_field_name( 'suppayments_option' ) ); ?>" value="phone_number" <?php checked( $suppayments_option, 'phone_number' ); ?>>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'suppayments_option' ) ); ?>_phone_number"><?php echo esc_html( 'Send to Phone Number' ); ?></label>
         </p>
         
         <p>
-            <label for="<?php echo $this->get_field_id( 'till_number' ); ?>">Till Number:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'till_number' ); ?>" name="<?php echo $this->get_field_name( 'till_number' ); ?>" type="text" value="<?php echo esc_attr( $instance['till_number'] ); ?>" />
+            <label for="<?php echo esc_attr( $this->get_field_id( 'till_number' ) ); ?>"><?php echo esc_html( 'Till Number:' ); ?></label>
+            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'till_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'till_number' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['till_number'] ); ?>" />
         </p>
         
         <p>
-            <label for="<?php echo $this->get_field_id( 'paybill_number' ); ?>">Paybill Business Number:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'paybill_number' ); ?>" name="<?php echo $this->get_field_name( 'paybill_number' ); ?>" type="text" value="<?php echo esc_attr( $instance['paybill_number'] ); ?>" />
+            <label for="<?php echo esc_attr( $this->get_field_id( 'paybill_number' ) ); ?>"><?php echo esc_html( 'Paybill Business Number:' ); ?></label>
+            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'paybill_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'paybill_number' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['paybill_number'] ); ?>" />
         </p>
         
         <p>
-            <label for="<?php echo $this->get_field_id( 'account_number' ); ?>">Paybill Account Number:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'account_number' ); ?>" name="<?php echo $this->get_field_name( 'account_number' ); ?>" type="text" value="<?php echo esc_attr( $instance['account_number'] ); ?>" />
+            <label for="<?php echo esc_attr( $this->get_field_id( 'account_number' ) ); ?>"><?php echo esc_html( 'Paybill Account Number:' ); ?></label>
+            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'account_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'account_number' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['account_number'] ); ?>" />
         </p>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'send_phone_number' ); ?>">Send to Phone Number:</label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'send_phone_number' ); ?>" name="<?php echo $this->get_field_name( 'send_phone_number' ); ?>" type="text" value="<?php echo esc_attr( $instance['send_phone_number'] ); ?>" />
+            <label for="<?php echo esc_attr( $this->get_field_id( 'send_phone_number' ) ); ?>"><?php echo esc_html( 'Send to Phone Number:' ); ?></label>
+            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'send_phone_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'send_phone_number' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['send_phone_number'] ); ?>" />
         </p>
         
         <?php
     }
+
 
 // Updates and saves the widget instance settings with the new instance values
     public function update( $new_instance, $old_instance ) {
